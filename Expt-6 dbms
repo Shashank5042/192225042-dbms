@@ -1,0 +1,96 @@
+mysql> use simam;
+Database changed
+mysql> show tables;
++---------------+
+|Table in simam |
++---------------+
+| bin           |
+| empdepartment |
+| empdept       |
+| employee      |
+| mentees       |
+| student       |
+| studepartment |
+| te            |
++---------------+
+8 rows in set (0.01 sec)
+mysql> alter table student add subject varchar(10);
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> update student set subject="PDSD" where Dept="it";
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update student set subject="DBMS" where Dept="CSE";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set subject="BIOEVS" where Dept="cse";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from student;
++-----------+---------+------+---------+------------+-------+---------+
+| Regno     | Name    | Dept | Address | Fathername | Marks | subject |
++-----------+---------+------+---------+------------+-------+---------+
+| 192211635 | charith | CSE  | Chennai | daneil     |    99 | DBMS    |
+| 192211592 | siva    | cse  | bihhar  | david      |    91 | BIOEVS  |
+| 192211593 | Harika  | it   | kerala  | samuel     |    95 | PDSD    |
+| 192212595 | pragna  | it   | kashmir | Ramesh     |    91 | PDSD    |
++-----------+---------+------+---------+------------+-------+---------+
+4 rows in set (0.00 sec)
+mysql> select*from student where Marks BETWEEN 95 and 99;
++-----------+---------+------+---------+------------+-------+---------+
+| Regno     | Name    | Dept | Address | Fathername | Marks | subject |
++-----------+---------+------+---------+------------+-------+---------+
+| 192211635 | charith | CSE  | Chennai | daneil     |    99 | DBMS    |
+| 192211593 | Harika  | cse  | kerala  | samuel     |    95 | PDSD    |
++-----------+---------+------+---------+------------+-------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select*from student where subject IN('BIOEVS');
++-----------+------+------+---------+------------+-------+---------+
+| Regno     | Name | Dept | Address | Fathername | Marks | subject |
++-----------+------+------+---------+------------+-------+---------+
+| 192211592 | siva | cse  | bihhar  | david      |    91 | BIOEVS  |
++-----------+------+------+---------+------------+-------+---------+
+1 row in set (0.00 sec)
+mysql> select*from student where Marks NOT BETWEEN 95 and 99;
++-----------+--------+------+---------+------------+-------+---------+
+| Regno     | Name   | Dept | Address | Fathername | Marks | subject |
++-----------+--------+------+---------+------------+-------+---------+
+| 1920635   | siva   | cse  | bihhar  | muthu      |    91 | BIOEVS  |
+| 192211595 | pragna | it   | kashmir | Ramesh     |    91 | PDSD    |
++-----------+--------+------+---------+------------+-------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select sum(Marks) from student where Dept="cse";
++------------+
+| sum(Marks) |
++------------+
+|        186 |
++------------+
+1 row in set (0.01 sec)
+mysql> select avg(Marks) as Average from student;
++---------+
+| Average |
++---------+
+| 94.0000 |
++---------+
+1 row in set (0.00 sec)
+mysql> select min(Marks) as minimum from student;
++---------+
+| minimum |
++---------+
+|      91 |
++---------+
+1 row in set (0.01 sec)
+
+mysql> select max(Marks) as maximum from student;
++---------+
+| maximum |
++---------+
+|      99 |
++---------+
+1 row in set (0.00 sec)
