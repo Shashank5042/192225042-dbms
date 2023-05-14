@@ -1,0 +1,57 @@
+mysql> use simam;
+Database changed
+
+mysql> select*from student;
++-----------+---------+------+---------+------------+
+| Regno     | Name    | Dept | Address | Fathername |
++-----------+---------+------+---------+------------+
+| 192211635 | charith | CSE  | assam   | daneil     |
+| 192211592 | siva    | CSE  | bihhar  | david      |
+| 192211593 | Harika  | cse  | kerala  | samuel     |
+| 192211594 | yogish  | cse  | punjab  | paul       |
+| 192211595 | pragna  | cse  | kashmir | Ramesh     |
++-----------+---------+------+---------+------------+
+5 rows in set (0.00 sec)
+mysql> update student set Dept="cse" where Regno=192211592;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from student;
++-----------+---------+------+---------+------------+
+| Regno     | Name    | Dept | Address | Fathername |
++-----------+---------+------+---------+------------+
+| 192211635 | charith | CSE  | assam   | daneil     |
+| 192211592 | siva    | cse  | bihhar  | david      |
+| 192211593 | Harika  | cse  | kerala  | samuel     |
+| 192211594 | yogish  | cse  | punjab  | paul       |
+| 192212595 | pragna  | cse  | kashmir | Ramesh     |
++-----------+---------+------+---------+------------+
+5 rows in set (0.00 sec)
+mysql> update student set Address="Chennai"where Dept="CSE";
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select* from student;
++-----------+---------+------+---------+------------+
+| Regno     | Name    | Dept | Address | Fathername |
++-----------+---------+------+---------+------------+
+| 192211635 | charith | CSE  | Chennai | daneil     |
+| 192211592 | siva    | cse  | bihhar  | david      |
+| 192211593 | Harika  | cse  | kerala  | samuel     |
+| 192211594 | yogish  | cse  | punjab  | paul       |
+| 192211595 | pragna  | cse  | kashmir | Ramesh     |
++-----------+---------+------+---------+------------+
+5 rows in set (0.00 sec)
+mysql> delete from student where Fathername="paul";
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select* from student;
++-----------+---------+------+---------+------------+
+| Regno     | Name    | Dept | Address | Fathername |
++-----------+---------+------+---------+------------+
+| 192211635 | charith | CSE  | Chennai | daneil    |
+| 192211592 | siva    | cse  | bihhar  | david      |
+| 192211593 | yogish  | cse  | kerala  | samuel     |
+| 192211595 | pragna  | cse  | kashmir | Ramesh     |
++-----------+---------+------+---------+------------+
+4 rows in set (0.00 sec)
