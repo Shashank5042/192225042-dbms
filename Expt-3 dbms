@@ -1,0 +1,50 @@
+mysql> use simam;
+Database changed
+mysql> create table student(Regno int(10),Name varchar(20),Dept varchar(4),Address varchar(10),Fathername varchar(10));
+Query OK, 0 rows affected, 1 warning (0.07 sec)
+mysql> insert into student values(192211635,"charith","CSE","assam","daneil");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student values(192211592,"siva","CSE","bihhar","david");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into student values(192211593,"Harika","cse","kerala","samuel");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student values(192211594,"yogish","cse","punjab","paul");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into student values(192211595,"pragna","cse","kashmir","Ramesh");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select*from student;
++-----------+---------+------+---------+------------+
+| Regno     | Name    | Dept | Address | Fathername |
++-----------+---------+------+---------+------------+
+| 192211635 | charith | CSE  | assam   | daneil     |
+| 192211592 | siva    | CSE  | bihhar  | david      |
+| 192211593 | Harika  | cse  | kerala  | samuel     |
+| 192211594 | yogish  | cse  | punjab  | paul       |
+| 192211595 | pragna  | cse  | kashmir | Ramesh     |
++-----------+---------+------+---------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select Name from student;
++---------+
+| Name    |
++---------+
+| charith |
+| siva    |
+| Harika  |
+| yogish  |
+| pragna  |
++---------+
+5 rows in set (0.00 sec)
+
+mysql> select*from student where Name="charith";
++-----------+---------+------+---------+------------+
+| Regno     | Name    | Dept | Address | Fathername |
++-----------+---------+------+---------+------------+
+| 192211635 | charith | CSE  | asaam   | daneil    |
++-----------+---------+------+---------+------------+
+1 row in set (0.00 sec)
