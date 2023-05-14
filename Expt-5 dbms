@@ -1,0 +1,105 @@
+mysql> use simam;
+Database changed
+mysql> show tables;
++---------------+
+|Tablesin simam |
++---------------+
+| bin           |
+| empdepartment |
+| empdept       |
+| employee      |
+| mentees       |
+| student       |
+| studepartment |
+| te            |
++---------------+
+8 rows in set (0.01 sec)
+
+mysql> select* from student;
++-----------+---------+------+---------+------------+
+| Regno     | Name    | Dept | Address | Fathername |
++-----------+---------+------+---------+------------+
+| 192211635 | charith | CSE  | assam   | daneil     |
+| 192211592 | siva    | cse  | bihhar  | david      |
+| 192211593 | Harika  | cse  | it      | samuel     |
+| 192211594 | yogish  | cse  | punjab  | paul       |
+| 192211595 | pragna  | cse  | it      | Ramesh     |
++-----------+---------+------+---------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select *from student where Dept='it';
++-----------+--------+------+---------+------------+
+| Regno     | Name   | Dept | Address | Fathername |
++-----------+--------+------+---------+------------+
+| 192211593 | Harika | it   | kerala  | samuel     |
+| 192211595 | pragna | it   | kashmir | Ramesh     |
++-----------+--------+------+---------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select *from student where Name="charith";
++-----------+---------+------+---------+------------+
+| Regno     | Name    | Dept | Address | Fathername |
++-----------+---------+------+---------+------------+
+| 192211635 | charith | CSE  | Chennai | daneil     |
++-----------+---------+------+---------+------------+
+1 row in set (0.00 sec)
+mysql> alter table student add Marks int(3);
+Query OK, 0 rows affected, 1 warning (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql> update student set Marks=99 where Dept="CSE";
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set Marks=91 where Dept="cse";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update student set Marks=91 where Name="pragna";
+Query OK, 1 row affected (0.02 sec)
+
+mysql> update student set Marks=95 where Name="Harika";
+Query OK, 1 row affected (0.02 sec)
+
+
+mysql> select* from student;
++-----------+---------+------+---------+------------+-------+
+| Regno     | Name    | Dept | Address | Fathername | Marks |
++-----------+---------+------+---------+------------+-------+
+| 192211635 | charith | CSE  | Chennai | daneil     |    99 |
+| 192211592 | siva    | cse  | bihhar  | david      |    91 |
+| 192211593 | Harika  | it   | kerala  | samuel     |    95 |
+| 192211595 | pragna  | it   | kashmir | Ramesh     |    91 |
++-----------+---------+------+---------+------------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select*from student where Name like 'G%';
++-----------+---------+------+---------+------------+-------+
+| Regno     | Name    | Dept | Address | Fathername | Marks |
++-----------+---------+------+---------+------------+-------+
+| 192211635 | charith | CSE  | Chennai | daneil     |    99 |
++-----------+---------+------+---------+------------+-------+
+1 row in set (0.01 sec)
+mysql> select*from student where Dept like '%S%';
++-----------+---------+------+---------+------------+-------+
+| Regno     | Name    | Dept | Address | Fathername | Marks |
++-----------+---------+------+---------+------------+-------+
+| 192211635 | charith | CSE  | Chennai | daneil     |    99 |
++-----------+---------+------+---------+------------+-------+
+1 row in set (0.00 sec)
+
+mysql> select*from student where Address like '%i';
++-----------+---------+------+---------+------------+-------+
+| Regno     | Name    | Dept | Address | Fathername | Marks |
++-----------+---------+------+---------+------------+-------+
+| 192211635 | charith | CSE  | Chennai | daneil     |    99 |
+| 192211595 | Harika  | it   | kerala  | samuel     |    95 |
++-----------+---------+------+---------+------------+-------+
+2 rows in set (0.00 sec)
+mysql> select *from student where Address like 'C___n_i';
++-----------+---------+------+---------+------------+-------+
+| Regno     | Name    | Dept | Address | Fathername | Marks |
++-----------+---------+------+---------+------------+-------+
+| 192211635 | charith | CSE  | Chennai | daneil    |    99 |
++-----------+---------+------+---------+------------+-------+
+1 row in set (0.00 sec)
